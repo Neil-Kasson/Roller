@@ -57,7 +57,7 @@ function battle(msg) {
 	var out = '```\nBATTLE ORDER:\n\n'
 	names = shuffle(names)
 	for (var j in names) {
-		out = out + j ") " + names[j] + '\n'
+		out = out + j +') ' + names[j] + '\n'
 	}
 	out = out + '```'
 	return out;
