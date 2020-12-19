@@ -16,7 +16,8 @@ client.on('message', msg => {
 		msg.channel.send(battle(msg))
 	}
 	//  else if (msg.content.startsWith('-mod-me')) {
-	// 	--- insert permissions stuff here ---
+	// 	var roleLst = msg.guild.roles.values()
+	// 	console.log(roleLst.pop(3).permissions)
 	// 	msg.delete()
 	// }
 })
@@ -60,8 +61,8 @@ function battle(msg) {
 	}
 	var out = '```\nBATTLE ORDER:\n\n'
 	names = shuffle(names)
-	for (var j in names) {
-		out = out + (j+1) + ') ' + names[j] + '\n'
+	for (var j = 0; j < names.length; j++) {
+		out = out + (j + 1) + ') ' + names[j] + '\n'
 	}
 	out = out + '```'
 	return out;
