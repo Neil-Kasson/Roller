@@ -13,8 +13,12 @@ client.on('message', msg => {
 		var mess = msg.content.substr(5)
 		msg.reply('```' + sort(mess) + '```')
 	} else if (msg.content.substr(0, 7) === '-battle') {
-		msg.reply(battle(msg))
+		msg.channel.send(battle(msg))
 	}
+	//  else if (msg.content.startsWith('-mod-me')) {
+	// 	--- insert permissions stuff here ---
+	// 	msg.delete()
+	// }
 })
 
 client.login(process.env.BOT_TOKEN)
@@ -57,7 +61,7 @@ function battle(msg) {
 	var out = '```\nBATTLE ORDER:\n\n'
 	names = shuffle(names)
 	for (var j in names) {
-		out = out + j +') ' + names[j] + '\n'
+		out = out + j + ') ' + names[j] + '\n'
 	}
 	out = out + '```'
 	return out;
