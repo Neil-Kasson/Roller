@@ -54,7 +54,7 @@ function battle(msg) {
 			names.push(keys[i].user.username)
 		}
 	}
-	var out = '```\n'
+	var out = '```\nBATTLE ORDER:\n\n'
 	names = shuffle(names)
 	for (var j in names) {
 		out = out + names[j] + '\n'
