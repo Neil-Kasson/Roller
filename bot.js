@@ -46,7 +46,7 @@ function battle(msg) {
 			mess = ''
 		}
 	}
-	
+
 	for (var i = 0; i < keys.length; i++) {
 		if (keys[i].nickname != null) {
 			names.push(keys[i].nickname)
@@ -57,17 +57,18 @@ function battle(msg) {
 	var out = '```\nBATTLE ORDER:\n\n'
 	names = shuffle(names)
 	for (var j in names) {
-		out = out + names[j] + '\n'
+		out = out + j ") " + names[j] + '\n'
 	}
 	out = out + '```'
 	return out;
 }
 
-function shuffle(array){
-	var m = array.length, t, i;
+function shuffle(array) {
+	var m = array.length,
+		t, i;
 
-	while(m){
-		i = Math.floor(Math.random()*m--);
+	while (m) {
+		i = Math.floor(Math.random() * m--);
 		t = array[m]
 		array[m] = array[i];
 		array[i] = t;
