@@ -15,8 +15,8 @@ client.on('message', msg => {
 	} else if (msg.content.substr(0, 7) === '-battle') {
 		msg.channel.send(battle(msg))
 	}
-	//  else if (msg.content.startsWith('-stats')) {
-	// 		
+	//  else if (msg.content.startsWith('-specs')) {
+	// 
 	// }
 })
 
@@ -51,7 +51,9 @@ function battle(msg) {
 	}
 
 	for (var i = 0; i < keys.length; i++) {
-		if (keys[i].nickname != null) {
+		if (keys[i].user.username == 'Groovy') {
+
+		} else if (keys[i].nickname != null) {
 			names.push(keys[i].nickname)
 		} else {
 			names.push(keys[i].user.username)
@@ -80,6 +82,9 @@ function shuffle(array) {
 
 	return outArr;
 }
+
+
+//For Rolls
 
 function sort(mess) {
 	mess = mess.replace(/\s+/g, '')
@@ -111,20 +116,11 @@ function sort(mess) {
 		}
 	}
 	var out = ''
-	var temp = ''
 	while (rolls.length > 1) {
-		temp = rolls.shift()
-		if (temp == 'Groovy'){}
-		else {
-			out = out + temp + ' + '
-		}
+		out = out + rolls.shift() + ' + '
 	}
 	if (rolls.length == 1) {
-		temp = rolls.shift()
-		if (temp == 'Groovy'){}
-		else {
-			out = out + temp + ' + '
-		}
+		out = out + rolls.shift()
 	}
 	return (out + ' => ' + final)
 
