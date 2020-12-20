@@ -15,10 +15,8 @@ client.on('message', msg => {
 	} else if (msg.content.substr(0, 7) === '-battle') {
 		msg.channel.send(battle(msg))
 	}
-	//  else if (msg.content.startsWith('-mod-me')) {
-	// 	var roleLst = msg.guild.roles.values()
-	// 	console.log(roleLst.pop(3).permissions)
-	// 	msg.delete()
+	//  else if (msg.content.startsWith('-stats')) {
+	// 		
 	// }
 })
 
@@ -113,11 +111,20 @@ function sort(mess) {
 		}
 	}
 	var out = ''
+	var temp = ''
 	while (rolls.length > 1) {
-		out = out + rolls.shift() + ' + '
+		temp = rolls.shift()
+		if (temp == 'Groovy'){}
+		else {
+			out = out + temp + ' + '
+		}
 	}
 	if (rolls.length == 1) {
-		out = out + rolls.shift()
+		temp = rolls.shift()
+		if (temp == 'Groovy'){}
+		else {
+			out = out + temp + ' + '
+		}
 	}
 	return (out + ' => ' + final)
 
